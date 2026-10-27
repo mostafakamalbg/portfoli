@@ -1,0 +1,382 @@
+<!DOCTYPE html>
+<html lang="bn" class="scroll-smooth" data-theme="cyber">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Mostafa Kamal | Full Stack MERN Developer</title>
+<meta name="description" content="Mostafa Kamal – Full Stack MERN Developer from Bogura. ERP, inventory, dealer management and e-commerce web applications.">
+<script src="https://cdn.tailwindcss.com"></script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+<link href="https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@400;500;600;700&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<script>
+tailwind.config={theme:{extend:{fontFamily:{sans:['Inter','Hind Siliguri','sans-serif']},colors:{primary:'var(--p)',secondary:'var(--s)',bg:'var(--bg)',card:'var(--card)'}}}}
+</script>
+<style>
+:root[data-theme=cyber]{--p:#22d3ee;--s:#34d399;--bg:#0a101c;--card:#111a2b;--line:#1f2b42}
+:root[data-theme=violet]{--p:#a78bfa;--s:#f472b6;--bg:#0e0f1c;--card:#161728;--line:#26283f}
+:root[data-theme=emerald]{--p:#34d399;--s:#a3e635;--bg:#07140f;--card:#0d2019;--line:#173226}
+html{scroll-padding-top:5rem}
+body{background:var(--bg);color:#e2e8f0;font-family:'Inter','Hind Siliguri',sans-serif;transition:background .3s}
+.grad-t{background:linear-gradient(120deg,var(--p),var(--s));-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent}
+.grad-b{background:linear-gradient(120deg,var(--p),var(--s));color:#06101a}
+.card{background:var(--card);border:1px solid var(--line);transition:border-color .25s,transform .25s}
+.card:hover{border-color:var(--p)}
+.chip{border:1px solid var(--line);background:rgba(255,255,255,.03)}
+.h2{font-size:clamp(1.7rem,4vw,2.5rem);font-weight:800;color:#fff;letter-spacing:-.01em}
+.sub{color:#94a3b8;max-width:42rem;margin:.75rem auto 0;line-height:1.75}
+.nav a.active{color:var(--p)}
+.ico{color:var(--p);background:color-mix(in srgb,var(--p) 12%,transparent);border:1px solid color-mix(in srgb,var(--p) 30%,transparent)}
+a:focus-visible,button:focus-visible,input:focus-visible,textarea:focus-visible{outline:2px solid var(--p);outline-offset:2px}
+input,textarea{background:var(--bg);border:1px solid var(--line);color:#fff}
+input:focus,textarea:focus{border-color:var(--p);outline:none}
+.hero-in{animation:rise .8s ease both}
+@keyframes rise{from{opacity:0;transform:translateY(18px)}to{opacity:1;transform:none}}
+@media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important;scroll-behavior:auto!important}}
+</style>
+</head>
+<body class="antialiased selection:bg-cyan-500/40">
+
+<!-- HEADER -->
+<header class="fixed inset-x-0 top-0 z-50 border-b border-white/5 bg-bg/80 backdrop-blur-lg">
+<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 sm:h-20 flex items-center justify-between">
+  <a href="#home" class="flex items-center gap-3" aria-label="Mostafa Kamal">
+    <!-- New logo: hex monogram -->
+    <svg width="44" height="44" viewBox="0 0 48 48" fill="none" aria-hidden="true">
+      <defs><linearGradient id="lg" x1="4" y1="4" x2="44" y2="44"><stop stop-color="var(--p)"/><stop offset="1" stop-color="var(--s)"/></linearGradient></defs>
+      <path d="M24 2.5 43 13.5v21L24 45.5 5 34.5v-21z" stroke="url(#lg)" stroke-width="2.2" fill="rgba(255,255,255,.03)"/>
+      <path d="M13.5 32V16.5l5.2 8 5.3-8V32M27 16.5V32m0-7.5 7-8m-7 8 7.5 7.5" stroke="url(#lg)" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" transform="translate(-1 0)"/>
+    </svg>
+    <span class="leading-tight">
+      <span class="block font-bold text-white text-lg tracking-tight">Mostafa Kamal</span>
+      <span class="block text-[11px] text-slate-400">Full Stack MERN Developer</span>
+    </span>
+  </a>
+
+  <nav class="nav hidden lg:flex items-center gap-7 text-sm font-medium text-slate-300">
+    <a href="#home" class="hover:text-white" data-bn="হোম" data-en="Home">হোম</a>
+    <a href="#about" class="hover:text-white" data-bn="পরিচিতি" data-en="About">পরিচিতি</a>
+    <a href="#skills" class="hover:text-white" data-bn="দক্ষতা" data-en="Skills">দক্ষতা</a>
+    <a href="#projects" class="hover:text-white" data-bn="প্রজেক্ট" data-en="Projects">প্রজেক্ট</a>
+    <a href="#education" class="hover:text-white" data-bn="শিক্ষা" data-en="Education">শিক্ষা</a>
+    <a href="#contact" class="hover:text-white" data-bn="যোগাযোগ" data-en="Contact">যোগাযোগ</a>
+  </nav>
+
+  <div class="flex items-center gap-2">
+    <div class="hidden sm:flex items-center gap-1.5 mr-1" role="group" aria-label="Theme">
+      <button onclick="setTheme('cyber')" aria-label="Cyan theme" class="w-5 h-5 rounded-full bg-cyan-400 ring-1 ring-white/30"></button>
+      <button onclick="setTheme('violet')" aria-label="Violet theme" class="w-5 h-5 rounded-full bg-violet-400 ring-1 ring-white/30"></button>
+      <button onclick="setTheme('emerald')" aria-label="Green theme" class="w-5 h-5 rounded-full bg-emerald-400 ring-1 ring-white/30"></button>
+    </div>
+    <button onclick="toggleLang()" class="chip px-3 py-2 rounded-lg text-xs font-semibold text-slate-200 hover:bg-white/10" aria-label="Change language"><i class="fa-solid fa-globe mr-1 text-primary"></i><span id="langBtn">EN</span></button>
+    <a href="#contact" class="hidden md:inline-flex grad-b px-4 py-2 rounded-lg text-sm font-semibold" data-bn="যোগাযোগ করুন" data-en="Hire me">যোগাযোগ করুন</a>
+    <button id="menuBtn" class="lg:hidden chip w-10 h-10 rounded-lg text-slate-200" aria-label="Menu" aria-expanded="false"><i class="fa-solid fa-bars"></i></button>
+  </div>
+</div>
+<div id="menu" class="hidden lg:hidden border-t border-white/5 bg-bg px-4 pb-5 pt-2">
+  <div class="grid gap-1 text-slate-200 font-medium">
+    <a onclick="closeMenu()" href="#home" class="py-2.5" data-bn="হোম" data-en="Home">হোম</a>
+    <a onclick="closeMenu()" href="#about" class="py-2.5" data-bn="পরিচিতি" data-en="About">পরিচিতি</a>
+    <a onclick="closeMenu()" href="#skills" class="py-2.5" data-bn="দক্ষতা" data-en="Skills">দক্ষতা</a>
+    <a onclick="closeMenu()" href="#projects" class="py-2.5" data-bn="প্রজেক্ট" data-en="Projects">প্রজেক্ট</a>
+    <a onclick="closeMenu()" href="#education" class="py-2.5" data-bn="শিক্ষা" data-en="Education">শিক্ষা</a>
+    <a onclick="closeMenu()" href="#contact" class="py-2.5" data-bn="যোগাযোগ" data-en="Contact">যোগাযোগ</a>
+  </div>
+  <div class="sm:hidden flex items-center gap-3 pt-4 mt-2 border-t border-white/5 text-xs text-slate-400">
+    <span data-bn="থিম:" data-en="Theme:">থিম:</span>
+    <button onclick="setTheme('cyber')" aria-label="Cyan" class="w-6 h-6 rounded-full bg-cyan-400"></button>
+    <button onclick="setTheme('violet')" aria-label="Violet" class="w-6 h-6 rounded-full bg-violet-400"></button>
+    <button onclick="setTheme('emerald')" aria-label="Green" class="w-6 h-6 rounded-full bg-emerald-400"></button>
+  </div>
+</div>
+</header>
+
+<main>
+<!-- HERO -->
+<section id="home" class="relative pt-28 sm:pt-36 pb-20 sm:pb-28 overflow-hidden">
+  <div class="absolute -top-32 -right-32 w-[28rem] h-[28rem] rounded-full blur-3xl opacity-20 pointer-events-none" style="background:var(--p)"></div>
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid lg:grid-cols-12 gap-12 items-center">
+    <div class="lg:col-span-7 text-center lg:text-left hero-in">
+      <span class="chip inline-flex items-center gap-2 px-4 py-1.5 rounded-full text-sm text-slate-300">
+        <span class="w-2 h-2 rounded-full bg-emerald-400"></span>
+        <span data-bn="নতুন প্রজেক্টের জন্য উপলব্ধ" data-en="Available for new projects">নতুন প্রজেক্টের জন্য উপলব্ধ</span>
+      </span>
+      <h1 class="mt-6 font-extrabold text-white leading-[1.15] tracking-tight text-4xl sm:text-5xl xl:text-6xl">
+        <span data-bn="ব্যবসার জটিল হিসাবকে সহজ ওয়েব সিস্টেমে রূপ দিই" data-en="I turn complex business operations into reliable web systems">ব্যবসার জটিল হিসাবকে সহজ ওয়েব সিস্টেমে রূপ দিই</span>
+      </h1>
+      <p class="mt-5 text-lg font-semibold grad-t inline-block">Mostafa Kamal · Full Stack MERN Developer</p>
+      <p class="mt-4 text-slate-400 text-base sm:text-lg leading-relaxed max-w-2xl mx-auto lg:mx-0" data-bn="আমি মোস্তফা কামাল, বগুড়া থেকে কাজ করি। ইনভেন্টরি, ডিলার ম্যানেজমেন্ট, সেলস রিপোর্টিং ও ই-কমার্সের জন্য দ্রুত, নিরাপদ এবং সব ডিভাইসে সুন্দরভাবে চলে এমন অ্যাপ্লিকেশন তৈরি করি।" data-en="I'm Mostafa Kamal, working from Bogura, Bangladesh. I build fast, secure web applications for inventory, dealer management, sales reporting and e-commerce that work smoothly on every device.">আমি মোস্তফা কামাল, বগুড়া থেকে কাজ করি। ইনভেন্টরি, ডিলার ম্যানেজমেন্ট, সেলস রিপোর্টিং ও ই-কমার্সের জন্য দ্রুত, নিরাপদ এবং সব ডিভাইসে সুন্দরভাবে চলে এমন অ্যাপ্লিকেশন তৈরি করি।</p>
+      <div class="mt-8 flex flex-wrap gap-3 justify-center lg:justify-start">
+        <a href="#projects" class="grad-b px-7 py-3.5 rounded-xl font-bold shadow-lg" data-bn="প্রজেক্ট দেখুন" data-en="View projects">প্রজেক্ট দেখুন</a>
+        <a href="#contact" class="chip px-7 py-3.5 rounded-xl font-semibold text-white hover:bg-white/10" data-bn="যোগাযোগ করুন" data-en="Contact me">যোগাযোগ করুন</a>
+      </div>
+      <div class="mt-8 flex items-center gap-3 justify-center lg:justify-start text-slate-300">
+        <a href="https://github.com" target="_blank" rel="noopener" aria-label="GitHub" class="chip w-10 h-10 rounded-lg grid place-items-center hover:text-primary"><i class="fa-brands fa-github"></i></a>
+        <a href="https://linkedin.com" target="_blank" rel="noopener" aria-label="LinkedIn" class="chip w-10 h-10 rounded-lg grid place-items-center hover:text-primary"><i class="fa-brands fa-linkedin-in"></i></a>
+        <a href="https://facebook.com" target="_blank" rel="noopener" aria-label="Facebook" class="chip w-10 h-10 rounded-lg grid place-items-center hover:text-primary"><i class="fa-brands fa-facebook-f"></i></a>
+      </div>
+    </div>
+
+    <div class="lg:col-span-5 hero-in" style="animation-delay:.15s">
+      <div class="card rounded-3xl p-6 sm:p-8 max-w-md mx-auto">
+        <div class="flex items-center gap-4">
+          <div class="w-20 h-20 rounded-2xl grad-b grid place-items-center text-3xl font-extrabold">MK</div>
+          <div><h3 class="text-xl font-bold text-white">Mostafa Kamal</h3>
+          <p class="text-sm text-slate-400 mt-0.5"><i class="fa-solid fa-location-dot text-primary mr-1.5"></i>Bogura Sadar, Bangladesh</p></div>
+        </div>
+        <dl class="mt-6 grid grid-cols-3 gap-3 text-center">
+          <div class="chip rounded-xl py-3"><dt class="text-2xl font-extrabold text-white">3</dt><dd class="text-xs text-slate-400 mt-1" data-bn="প্রজেক্ট" data-en="Projects">প্রজেক্ট</dd></div>
+          <div class="chip rounded-xl py-3"><dt class="text-2xl font-extrabold text-white">MERN</dt><dd class="text-xs text-slate-400 mt-1" data-bn="প্রধান স্ট্যাক" data-en="Core stack">প্রধান স্ট্যাক</dd></div>
+          <div class="chip rounded-xl py-3"><dt class="text-2xl font-extrabold text-white">BBA</dt><dd class="text-xs text-slate-400 mt-1" data-bn="ব্যবসায় জ্ঞান" data-en="Business sense">ব্যবসায় জ্ঞান</dd></div>
+        </dl>
+        <p class="mt-6 text-sm text-slate-400 leading-relaxed" data-bn="বিবিএ-র ব্যবসায়িক ধারণা ও মার্ন স্ট্যাকের দক্ষতা একসাথে কাজে লাগিয়ে বাস্তব প্রয়োজনের সমাধান তৈরি করি।" data-en="I combine BBA business knowledge with MERN stack engineering to build solutions around real operational needs.">বিবিএ-র ব্যবসায়িক ধারণা ও মার্ন স্ট্যাকের দক্ষতা একসাথে কাজে লাগিয়ে বাস্তব প্রয়োজনের সমাধান তৈরি করি।</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section id="about" class="py-20 sm:py-24 border-y border-white/5">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="text-center mb-12"><h2 class="h2" data-bn="আমার পরিচিতি" data-en="About me">আমার পরিচিতি</h2>
+    <p class="sub" data-bn="আমি কে, কীভাবে কাজ করি এবং কোথায় পৌঁছাতে চাই।" data-en="Who I am, how I work and where I'm heading.">আমি কে, কীভাবে কাজ করি এবং কোথায় পৌঁছাতে চাই।</p></div>
+    <div class="grid md:grid-cols-3 gap-6">
+      <article class="card rounded-2xl p-7">
+        <div class="ico w-12 h-12 rounded-xl grid place-items-center text-xl mb-5"><i class="fa-solid fa-user-gear"></i></div>
+        <h3 class="text-lg font-bold text-white mb-3" data-bn="পেশাগত পরিচয়" data-en="Professional profile">পেশাগত পরিচয়</h3>
+        <p class="text-slate-400 text-sm leading-7" data-bn="বগুড়া সদরভিত্তিক ফুল স্ট্যাক ডেভেলপার। MongoDB, Express, React ও Node.js ব্যবহার করে ক্লিন কোড, নিরাপদ অথেনটিকেশন এবং রেসপন্সিভ ইউজার ইন্টারফেসসহ প্রোডাকশন-উপযোগী অ্যাপ্লিকেশন তৈরি করি।" data-en="Full Stack Developer based in Bogura Sadar. I use MongoDB, Express, React and Node.js to deliver production-ready applications with clean code, secure authentication and responsive interfaces.">বগুড়া সদরভিত্তিক ফুল স্ট্যাক ডেভেলপার। MongoDB, Express, React ও Node.js ব্যবহার করে ক্লিন কোড, নিরাপদ অথেনটিকেশন এবং রেসপন্সিভ ইউজার ইন্টারফেসসহ প্রোডাকশন-উপযোগী অ্যাপ্লিকেশন তৈরি করি।</p>
+      </article>
+      <article class="card rounded-2xl p-7">
+        <div class="ico w-12 h-12 rounded-xl grid place-items-center text-xl mb-5"><i class="fa-solid fa-graduation-cap"></i></div>
+        <h3 class="text-lg font-bold text-white mb-3" data-bn="শিক্ষা ও প্রশিক্ষণ" data-en="Education & training">শিক্ষা ও প্রশিক্ষণ</h3>
+        <p class="text-slate-400 text-sm leading-7" data-bn="ব্যবসায় প্রশাসনে বিবিএ সম্পন্ন করেছি, যা সেলস, ক্রয় ও ইনভেন্টরির প্রক্রিয়া বুঝতে সাহায্য করে। বর্তমানে ওস্তাদ প্ল্যাটফর্মের ১৯তম ব্যাচে মার্ন স্ট্যাক ওয়েব ডেভেলপমেন্টের প্রজেক্টভিত্তিক প্রশিক্ষণ নিচ্ছি।" data-en="Completed a BBA, which helps me understand sales, procurement and inventory workflows. Currently in Batch 19 of Ostad's MERN Stack Web Development program, with hands-on, project-based training.">ব্যবসায় প্রশাসনে বিবিএ সম্পন্ন করেছি, যা সেলস, ক্রয় ও ইনভেন্টরির প্রক্রিয়া বুঝতে সাহায্য করে। বর্তমানে ওস্তাদ প্ল্যাটফর্মের ১৯তম ব্যাচে মার্ন স্ট্যাক ওয়েব ডেভেলপমেন্টের প্রজেক্টভিত্তিক প্রশিক্ষণ নিচ্ছি।</p>
+      </article>
+      <article class="card rounded-2xl p-7">
+        <div class="ico w-12 h-12 rounded-xl grid place-items-center text-xl mb-5"><i class="fa-solid fa-bullseye"></i></div>
+        <h3 class="text-lg font-bold text-white mb-3" data-bn="লক্ষ্য ও আগ্রহ" data-en="Goals & interests">লক্ষ্য ও আগ্রহ</h3>
+        <p class="text-slate-400 text-sm leading-7" data-bn="আমার লক্ষ্য এন্টারপ্রাইজ ইনভেন্টরি ও বিজনেস অটোমেশনের জন্য স্কেলেবল সফটওয়্যার আর্কিটেকচার গড়ে তোলা। কোডিংয়ের বাইরে ভ্রমণ ও নতুন জায়গা ঘুরে দেখা আমার প্রিয় শখ।" data-en="My goal is to design scalable software architecture for enterprise inventory and business automation. Outside of code, I enjoy travelling and exploring new places.">আমার লক্ষ্য এন্টারপ্রাইজ ইনভেন্টরি ও বিজনেস অটোমেশনের জন্য স্কেলেবল সফটওয়্যার আর্কিটেকচার গড়ে তোলা। কোডিংয়ের বাইরে ভ্রমণ ও নতুন জায়গা ঘুরে দেখা আমার প্রিয় শখ।</p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- SKILLS (grouped by category) -->
+<section id="skills" class="py-20 sm:py-24">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="text-center mb-12"><h2 class="h2" data-bn="কারিগরি দক্ষতা" data-en="Technical skills">কারিগরি দক্ষতা</h2>
+    <p class="sub" data-bn="ক্যাটাগরি অনুযায়ী সাজানো টুলস ও প্রযুক্তি, যা প্রতিদিনের কাজে ব্যবহার করি।" data-en="Tools and technologies I use day to day, grouped by category.">ক্যাটাগরি অনুযায়ী সাজানো টুলস ও প্রযুক্তি, যা প্রতিদিনের কাজে ব্যবহার করি।</p></div>
+    <div class="grid sm:grid-cols-2 xl:grid-cols-4 gap-6">
+
+      <div class="card rounded-2xl overflow-hidden">
+        <div class="h-28 relative" style="background:linear-gradient(135deg,#f97316 0%,#ec4899 100%)">
+          <i class="fa-solid fa-laptop-code absolute right-4 bottom-3 text-5xl text-white/35"></i>
+          <h3 class="absolute left-5 bottom-4 text-white font-bold text-lg" data-bn="ফ্রন্টএন্ড" data-en="Frontend">ফ্রন্টএন্ড</h3>
+        </div>
+        <ul class="p-5 space-y-3 text-sm">
+          <li class="flex items-center gap-3"><i class="fa-brands fa-html5 w-5 text-orange-500 text-lg"></i>HTML5</li>
+          <li class="flex items-center gap-3"><i class="fa-brands fa-css3-alt w-5 text-blue-500 text-lg"></i>CSS3 &amp; Tailwind CSS</li>
+          <li class="flex items-center gap-3"><i class="fa-brands fa-js w-5 text-yellow-400 text-lg"></i>JavaScript (ES6+)</li>
+          <li class="flex items-center gap-3"><i class="fa-brands fa-react w-5 text-cyan-400 text-lg"></i>React.js</li>
+          <li class="flex items-center gap-3"><i class="fa-solid fa-n w-5 text-slate-200 text-lg"></i>Next.js</li>
+        </ul>
+      </div>
+
+      <div class="card rounded-2xl overflow-hidden">
+        <div class="h-28 relative" style="background:linear-gradient(135deg,#059669 0%,#0ea5e9 100%)">
+          <i class="fa-solid fa-server absolute right-4 bottom-3 text-5xl text-white/35"></i>
+          <h3 class="absolute left-5 bottom-4 text-white font-bold text-lg" data-bn="ব্যাকএন্ড" data-en="Backend">ব্যাকএন্ড</h3>
+        </div>
+        <ul class="p-5 space-y-3 text-sm">
+          <li class="flex items-center gap-3"><i class="fa-brands fa-node-js w-5 text-green-500 text-lg"></i>Node.js</li>
+          <li class="flex items-center gap-3"><i class="fa-solid fa-route w-5 text-slate-300 text-lg"></i>Express.js</li>
+          <li class="flex items-center gap-3"><i class="fa-solid fa-plug w-5 text-sky-400 text-lg"></i>REST API design</li>
+          <li class="flex items-center gap-3"><i class="fa-solid fa-key w-5 text-amber-400 text-lg"></i>JWT authentication</li>
+        </ul>
+      </div>
+
+      <div class="card rounded-2xl overflow-hidden">
+        <div class="h-28 relative" style="background:linear-gradient(135deg,#16a34a 0%,#65a30d 100%)">
+          <i class="fa-solid fa-database absolute right-4 bottom-3 text-5xl text-white/35"></i>
+          <h3 class="absolute left-5 bottom-4 text-white font-bold text-lg" data-bn="ডাটাবেজ" data-en="Database">ডাটাবেজ</h3>
+        </div>
+        <ul class="p-5 space-y-3 text-sm">
+          <li class="flex items-center gap-3"><i class="fa-solid fa-leaf w-5 text-emerald-500 text-lg"></i>MongoDB</li>
+          <li class="flex items-center gap-3"><i class="fa-solid fa-diagram-project w-5 text-red-400 text-lg"></i>Mongoose (ODM)</li>
+          <li class="flex items-center gap-3"><i class="fa-solid fa-table-list w-5 text-sky-300 text-lg"></i><span data-bn="স্কিমা ও ডাটা মডেলিং" data-en="Schema &amp; data modeling">স্কিমা ও ডাটা মডেলিং</span></li>
+        </ul>
+      </div>
+
+      <div class="card rounded-2xl overflow-hidden">
+        <div class="h-28 relative" style="background:linear-gradient(135deg,#4f46e5 0%,#7c3aed 100%)">
+          <i class="fa-solid fa-screwdriver-wrench absolute right-4 bottom-3 text-5xl text-white/35"></i>
+          <h3 class="absolute left-5 bottom-4 text-white font-bold text-lg" data-bn="টুলস ও ওয়ার্কফ্লো" data-en="Tools &amp; workflow">টুলস ও ওয়ার্কফ্লো</h3>
+        </div>
+        <ul class="p-5 space-y-3 text-sm">
+          <li class="flex items-center gap-3"><i class="fa-brands fa-git-alt w-5 text-red-400 text-lg"></i>Git</li>
+          <li class="flex items-center gap-3"><i class="fa-brands fa-github w-5 text-slate-200 text-lg"></i>GitHub</li>
+          <li class="flex items-center gap-3"><i class="fa-solid fa-mobile-screen w-5 text-pink-400 text-lg"></i><span data-bn="রেসপন্সিভ ডিজাইন" data-en="Responsive design">রেসপন্সিভ ডিজাইন</span></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PROJECTS -->
+<section id="projects" class="py-20 sm:py-24 border-y border-white/5">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="text-center mb-12"><h2 class="h2" data-bn="নির্বাচিত প্রজেক্ট" data-en="Featured projects">নির্বাচিত প্রজেক্ট</h2>
+    <p class="sub" data-bn="এন্টারপ্রাইজ ম্যানেজমেন্ট ও ই-কমার্সে তৈরি তিনটি বাস্তবভিত্তিক অ্যাপ্লিকেশন।" data-en="Three applications built around real enterprise management and e-commerce needs.">এন্টারপ্রাইজ ম্যানেজমেন্ট ও ই-কমার্সে তৈরি তিনটি বাস্তবভিত্তিক অ্যাপ্লিকেশন।</p></div>
+
+    <div class="grid md:grid-cols-2 xl:grid-cols-3 gap-6">
+
+      <article class="card rounded-2xl overflow-hidden flex flex-col group">
+        <div class="relative h-52 overflow-hidden" style="background:linear-gradient(135deg,#065f46,#0e7490)">
+          <img src="https://images.unsplash.com/photo-1595838770720-639a0937a4e6?auto=format&fit=crop&w=900&q=80" alt="Agro products and crop field" loading="lazy" onerror="this.remove()" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700">
+          <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
+          <span class="absolute top-4 left-4 px-3 py-1 rounded-full bg-black/50 backdrop-blur text-xs font-semibold text-emerald-300"><i class="fa-solid fa-seedling mr-1"></i>Agro Tech</span>
+        </div>
+        <div class="p-6 flex-1 flex flex-col">
+          <h3 class="text-xl font-bold text-white">Valid Agro Products Ltd.</h3>
+          <p class="mt-3 text-sm text-slate-400 leading-7" data-bn="কৃষি রাসায়নিক প্রতিষ্ঠানের উৎপাদন, ডিলার নেটওয়ার্ক ও ইনভেন্টরি এক প্ল্যাটফর্মে পরিচালনার জন্য তৈরি ম্যানেজমেন্ট সিস্টেম।" data-en="A management system that brings production, dealer network and inventory of an agro-chemical company into a single platform.">কৃষি রাসায়নিক প্রতিষ্ঠানের উৎপাদন, ডিলার নেটওয়ার্ক ও ইনভেন্টরি এক প্ল্যাটফর্মে পরিচালনার জন্য তৈরি ম্যানেজমেন্ট সিস্টেম।</p>
+          <ul class="mt-4 space-y-2 text-sm text-slate-300">
+            <li class="flex gap-2"><i class="fa-solid fa-check text-primary mt-1 text-xs"></i><span data-bn="ডিলারভিত্তিক সেলস ও বকেয়া হিসাব" data-en="Dealer-wise sales and dues tracking">ডিলারভিত্তিক সেলস ও বকেয়া হিসাব</span></li>
+            <li class="flex gap-2"><i class="fa-solid fa-check text-primary mt-1 text-xs"></i><span data-bn="রিয়েল-টাইম স্টক ও ইনভেন্টরি নিয়ন্ত্রণ" data-en="Real-time stock and inventory control">রিয়েল-টাইম স্টক ও ইনভেন্টরি নিয়ন্ত্রণ</span></li>
+            <li class="flex gap-2"><i class="fa-solid fa-check text-primary mt-1 text-xs"></i><span data-bn="রোলভিত্তিক অফিসার অ্যাক্সেস" data-en="Role-based officer access">রোলভিত্তিক অফিসার অ্যাক্সেস</span></li>
+          </ul>
+          <div class="mt-5 flex flex-wrap gap-2"><span class="chip px-2.5 py-1 rounded-md text-xs">Node.js</span><span class="chip px-2.5 py-1 rounded-md text-xs">Express</span><span class="chip px-2.5 py-1 rounded-md text-xs">MongoDB</span></div>
+          <div class="mt-auto pt-6 flex gap-3">
+            <a href="https://presticite.vercel.app/" target="_blank" rel="noopener" class="flex-1 grad-b text-center py-2.5 rounded-xl text-sm font-semibold" data-bn="লাইভ ডেমো" data-en="Live demo">লাইভ ডেমো</a>
+            <a href="https://github.com" target="_blank" rel="noopener" class="flex-1 chip text-center py-2.5 rounded-xl text-sm font-semibold hover:bg-white/10" data-bn="সোর্স কোড" data-en="Source code">সোর্স কোড</a>
+          </div>
+        </div>
+      </article>
+
+      <article class="card rounded-2xl overflow-hidden flex flex-col group">
+        <div class="relative h-52 overflow-hidden" style="background:linear-gradient(135deg,#1e3a8a,#0369a1)">
+          <img src="https://images.unsplash.com/photo-1574943320219-553eb213f72d?auto=format&fit=crop&w=900&q=80" alt="Factory and warehouse operations" loading="lazy" onerror="this.remove()" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700">
+          <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
+          <span class="absolute top-4 left-4 px-3 py-1 rounded-full bg-black/50 backdrop-blur text-xs font-semibold text-sky-300"><i class="fa-solid fa-industry mr-1"></i>Enterprise ERP</span>
+        </div>
+        <div class="p-6 flex-1 flex flex-col">
+          <h3 class="text-xl font-bold text-white">BG Agro Limited</h3>
+          <p class="mt-3 text-sm text-slate-400 leading-7" data-bn="কাঁচামাল ক্রয় থেকে ফ্যাক্টরি প্রোডাকশন, রিজিওনাল সেলস ও ফিল্ড রিপোর্ট পর্যন্ত পুরো সাপ্লাই চেইন নিয়ন্ত্রণের ERP প্ল্যাটফর্ম।" data-en="An ERP platform covering the whole supply chain, from raw material purchase and factory production to regional sales and field reports.">কাঁচামাল ক্রয় থেকে ফ্যাক্টরি প্রোডাকশন, রিজিওনাল সেলস ও ফিল্ড রিপোর্ট পর্যন্ত পুরো সাপ্লাই চেইন নিয়ন্ত্রণের ERP প্ল্যাটফর্ম।</p>
+          <ul class="mt-4 space-y-2 text-sm text-slate-300">
+            <li class="flex gap-2"><i class="fa-solid fa-check text-primary mt-1 text-xs"></i><span data-bn="কাঁচামাল ক্রয় ও প্রোডাকশন ট্র্যাকিং" data-en="Raw material purchase and production tracking">কাঁচামাল ক্রয় ও প্রোডাকশন ট্র্যাকিং</span></li>
+            <li class="flex gap-2"><i class="fa-solid fa-check text-primary mt-1 text-xs"></i><span data-bn="রিজিওনাল সেলস ড্যাশবোর্ড" data-en="Regional sales dashboards">রিজিওনাল সেলস ড্যাশবোর্ড</span></li>
+            <li class="flex gap-2"><i class="fa-solid fa-check text-primary mt-1 text-xs"></i><span data-bn="ফিল্ড অফিসারের দৈনিক রিপোর্ট" data-en="Daily field officer reporting">ফিল্ড অফিসারের দৈনিক রিপোর্ট</span></li>
+          </ul>
+          <div class="mt-5 flex flex-wrap gap-2"><span class="chip px-2.5 py-1 rounded-md text-xs">React.js</span><span class="chip px-2.5 py-1 rounded-md text-xs">Tailwind</span><span class="chip px-2.5 py-1 rounded-md text-xs">REST API</span></div>
+          <div class="mt-auto pt-6 flex gap-3">
+            <a href="https://presticite.vercel.app/" target="_blank" rel="noopener" class="flex-1 grad-b text-center py-2.5 rounded-xl text-sm font-semibold" data-bn="লাইভ ডেমো" data-en="Live demo">লাইভ ডেমো</a>
+            <a href="https://github.com" target="_blank" rel="noopener" class="flex-1 chip text-center py-2.5 rounded-xl text-sm font-semibold hover:bg-white/10" data-bn="সোর্স কোড" data-en="Source code">সোর্স কোড</a>
+          </div>
+        </div>
+      </article>
+
+      <article class="card rounded-2xl overflow-hidden flex flex-col group md:col-span-2 xl:col-span-1">
+        <div class="relative h-52 overflow-hidden" style="background:linear-gradient(135deg,#6d28d9,#be185d)">
+          <img src="https://images.unsplash.com/photo-1498049794561-7780e7231661?auto=format&fit=crop&w=900&q=80" alt="Electronics products" loading="lazy" onerror="this.remove()" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700">
+          <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
+          <span class="absolute top-4 left-4 px-3 py-1 rounded-full bg-black/50 backdrop-blur text-xs font-semibold text-pink-300"><i class="fa-solid fa-cart-shopping mr-1"></i>E-Commerce</span>
+        </div>
+        <div class="p-6 flex-1 flex flex-col">
+          <h3 class="text-xl font-bold text-white">Daily Market</h3>
+          <p class="mt-3 text-sm text-slate-400 leading-7" data-bn="ইলেকট্রনিক্স পণ্য কেনাবেচার জন্য আধুনিক ই-কমার্স প্ল্যাটফর্ম, যেখানে নিরাপদ লগইন, কার্ট ও অর্ডার ট্র্যাকিং রয়েছে।" data-en="A modern e-commerce platform for electronics with secure login, shopping cart and live order tracking.">ইলেকট্রনিক্স পণ্য কেনাবেচার জন্য আধুনিক ই-কমার্স প্ল্যাটফর্ম, যেখানে নিরাপদ লগইন, কার্ট ও অর্ডার ট্র্যাকিং রয়েছে।</p>
+          <ul class="mt-4 space-y-2 text-sm text-slate-300">
+            <li class="flex gap-2"><i class="fa-solid fa-check text-primary mt-1 text-xs"></i><span data-bn="অনলাইন পেমেন্ট গেটওয়ে ইন্টিগ্রেশন" data-en="Online payment gateway integration">অনলাইন পেমেন্ট গেটওয়ে ইন্টিগ্রেশন</span></li>
+            <li class="flex gap-2"><i class="fa-solid fa-check text-primary mt-1 text-xs"></i><span data-bn="JWT ভিত্তিক নিরাপদ অথেনটিকেশন" data-en="Secure JWT-based authentication">JWT ভিত্তিক নিরাপদ অথেনটিকেশন</span></li>
+            <li class="flex gap-2"><i class="fa-solid fa-check text-primary mt-1 text-xs"></i><span data-bn="পণ্যের স্টক ও অর্ডার স্ট্যাটাস আপডেট" data-en="Product stock and order status updates">পণ্যের স্টক ও অর্ডার স্ট্যাটাস আপডেট</span></li>
+          </ul>
+          <div class="mt-5 flex flex-wrap gap-2"><span class="chip px-2.5 py-1 rounded-md text-xs">MERN Stack</span><span class="chip px-2.5 py-1 rounded-md text-xs">Payment API</span><span class="chip px-2.5 py-1 rounded-md text-xs">JWT</span></div>
+          <div class="mt-auto pt-6 flex gap-3">
+            <a href="https://mostafakamalbg.github.io/website/" target="_blank" rel="noopener" class="flex-1 grad-b text-center py-2.5 rounded-xl text-sm font-semibold" data-bn="লাইভ ডেমো" data-en="Live demo">লাইভ ডেমো</a>
+            <a href="https://github.com" target="_blank" rel="noopener" class="flex-1 chip text-center py-2.5 rounded-xl text-sm font-semibold hover:bg-white/10" data-bn="সোর্স কোড" data-en="Source code">সোর্স কোড</a>
+          </div>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- EDUCATION -->
+<section id="education" class="py-20 sm:py-24">
+  <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="text-center mb-12"><h2 class="h2" data-bn="শিক্ষাগত যোগ্যতা" data-en="Education">শিক্ষাগত যোগ্যতা</h2>
+    <p class="sub" data-bn="একাডেমিক পড়াশোনা এবং চলমান প্রফেশনাল প্রশিক্ষণ।" data-en="Academic background and ongoing professional training.">একাডেমিক পড়াশোনা এবং চলমান প্রফেশনাল প্রশিক্ষণ।</p></div>
+    <ol class="relative border-l border-white/10 ml-4 space-y-8">
+      <li class="pl-8 relative">
+        <span class="absolute -left-[17px] top-1 w-8 h-8 rounded-full grad-b grid place-items-center text-xs"><i class="fa-solid fa-laptop-code"></i></span>
+        <div class="card rounded-2xl p-6">
+          <span class="text-xs font-semibold text-emerald-400" data-bn="চলমান" data-en="In progress">চলমান</span>
+          <h3 class="text-lg font-bold text-white mt-1">Full Stack MERN Web Development</h3>
+          <p class="text-sm text-slate-400">Ostad Platform · Batch 19</p>
+          <p class="text-sm text-slate-300 leading-7 mt-3" data-bn="React, Node.js, Express ও MongoDB নিয়ে প্রজেক্টভিত্তিক নিবিড় প্রশিক্ষণ, সাথে রিয়েল-ওয়ার্ল্ড অ্যাপ্লিকেশন ডেভেলপমেন্ট ও কোড রিভিউ।" data-en="Intensive, project-based training in React, Node.js, Express and MongoDB, along with real-world application development and code reviews.">React, Node.js, Express ও MongoDB নিয়ে প্রজেক্টভিত্তিক নিবিড় প্রশিক্ষণ, সাথে রিয়েল-ওয়ার্ল্ড অ্যাপ্লিকেশন ডেভেলপমেন্ট ও কোড রিভিউ।</p>
+        </div>
+      </li>
+      <li class="pl-8 relative">
+        <span class="absolute -left-[17px] top-1 w-8 h-8 rounded-full grad-b grid place-items-center text-xs"><i class="fa-solid fa-graduation-cap"></i></span>
+        <div class="card rounded-2xl p-6">
+          <span class="text-xs font-semibold text-primary" data-bn="সম্পন্ন" data-en="Completed">সম্পন্ন</span>
+          <h3 class="text-lg font-bold text-white mt-1">Bachelor of Business Administration (BBA)</h3>
+          <p class="text-sm text-slate-400">National University</p>
+          <p class="text-sm text-slate-300 leading-7 mt-3" data-bn="ম্যানেজমেন্ট, হিসাববিজ্ঞান ও মার্কেটিংয়ের জ্ঞান ERP ও ইনভেন্টরি সফটওয়্যারের বিজনেস লজিক নির্ভুলভাবে তৈরিতে সহায়তা করে।" data-en="Knowledge of management, accounting and marketing helps me model accurate business logic for ERP and inventory software.">ম্যানেজমেন্ট, হিসাববিজ্ঞান ও মার্কেটিংয়ের জ্ঞান ERP ও ইনভেন্টরি সফটওয়্যারের বিজনেস লজিক নির্ভুলভাবে তৈরিতে সহায়তা করে।</p>
+        </div>
+      </li>
+    </ol>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact" class="py-20 sm:py-24 border-t border-white/5">
+  <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="text-center mb-12"><h2 class="h2" data-bn="যোগাযোগ করুন" data-en="Get in touch">যোগাযোগ করুন</h2>
+    <p class="sub" data-bn="নতুন প্রজেক্ট বা কাজের সুযোগ নিয়ে কথা বলতে নিচের যেকোনো মাধ্যমে জানান।" data-en="Reach out about a new project or a work opportunity through any channel below.">নতুন প্রজেক্ট বা কাজের সুযোগ নিয়ে কথা বলতে নিচের যেকোনো মাধ্যমে জানান।</p></div>
+    <div class="grid lg:grid-cols-5 gap-8">
+      <div class="lg:col-span-2 space-y-4">
+        <a href="mailto:mostafakamalbgsm@gmail.com" class="card rounded-2xl p-5 flex items-center gap-4"><span class="ico w-12 h-12 rounded-xl grid place-items-center shrink-0"><i class="fa-solid fa-envelope"></i></span><span class="min-w-0"><span class="block text-xs text-slate-400" data-bn="ইমেইল" data-en="Email">ইমেইল</span><span class="block text-sm font-semibold text-white break-all">mostafakamalbgsm@gmail.com</span></span></a>
+        <a href="tel:01867912167" class="card rounded-2xl p-5 flex items-center gap-4"><span class="ico w-12 h-12 rounded-xl grid place-items-center shrink-0"><i class="fa-solid fa-phone"></i></span><span><span class="block text-xs text-slate-400" data-bn="ফোন" data-en="Phone">ফোন</span><span class="block text-sm font-semibold text-white">01867912167</span></span></a>
+        <div class="card rounded-2xl p-5 flex items-center gap-4"><span class="ico w-12 h-12 rounded-xl grid place-items-center shrink-0"><i class="fa-solid fa-location-dot"></i></span><span><span class="block text-xs text-slate-400" data-bn="ঠিকানা" data-en="Location">ঠিকানা</span><span class="block text-sm font-semibold text-white">Bogura Sadar, Bogura, Bangladesh</span></span></div>
+      </div>
+      <form id="cf" class="lg:col-span-3 card rounded-2xl p-6 sm:p-8 space-y-5">
+        <div class="grid sm:grid-cols-2 gap-5">
+          <label class="block text-xs text-slate-300"><span data-bn="আপনার নাম" data-en="Your name">আপনার নাম</span><input required type="text" class="mt-2 w-full px-4 py-3 rounded-xl text-sm"></label>
+          <label class="block text-xs text-slate-300"><span data-bn="আপনার ইমেইল" data-en="Your email">আপনার ইমেইল</span><input required type="email" class="mt-2 w-full px-4 py-3 rounded-xl text-sm"></label>
+        </div>
+        <label class="block text-xs text-slate-300"><span data-bn="বিষয়" data-en="Subject">বিষয়</span><input required type="text" class="mt-2 w-full px-4 py-3 rounded-xl text-sm"></label>
+        <label class="block text-xs text-slate-300"><span data-bn="বার্তা" data-en="Message">বার্তা</span><textarea required rows="5" class="mt-2 w-full px-4 py-3 rounded-xl text-sm"></textarea></label>
+        <button type="submit" class="w-full grad-b py-3.5 rounded-xl font-bold" data-bn="বার্তা পাঠান" data-en="Send message">বার্তা পাঠান</button>
+        <p id="ok" class="hidden text-sm text-emerald-400 text-center" data-bn="ধন্যবাদ! আপনার বার্তা পাঠানো হয়েছে।" data-en="Thank you! Your message has been sent.">ধন্যবাদ! আপনার বার্তা পাঠানো হয়েছে।</p>
+      </form>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer class="border-t border-white/5 py-8">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-sm text-slate-500">
+    <p>&copy; 2026 Mostafa Kamal. All rights reserved.</p>
+    <div class="flex gap-4 text-lg text-slate-400">
+      <a href="https://github.com" target="_blank" rel="noopener" aria-label="GitHub" class="hover:text-primary"><i class="fa-brands fa-github"></i></a>
+      <a href="https://linkedin.com" target="_blank" rel="noopener" aria-label="LinkedIn" class="hover:text-primary"><i class="fa-brands fa-linkedin-in"></i></a>
+      <a href="https://facebook.com" target="_blank" rel="noopener" aria-label="Facebook" class="hover:text-primary"><i class="fa-brands fa-facebook-f"></i></a>
+    </div>
+  </div>
+</footer>
+
+<script>
+let lang='bn';
+function toggleLang(){
+  lang=lang==='bn'?'en':'bn';
+  document.documentElement.lang=lang;
+  document.getElementById('langBtn').textContent=lang==='bn'?'EN':'বাং';
+  document.querySelectorAll('[data-bn]').forEach(e=>{e.textContent=e.dataset[lang]});
+  try{localStorage.setItem('lang',lang)}catch(e){}
+}
+function setTheme(t){document.documentElement.dataset.theme=t;try{localStorage.setItem('theme',t)}catch(e){}}
+const menu=document.getElementById('menu'),mb=document.getElementById('menuBtn');
+mb.addEventListener('click',()=>{menu.classList.toggle('hidden');mb.setAttribute('aria-expanded',!menu.classList.contains('hidden'))});
+function closeMenu(){menu.classList.add('hidden');mb.setAttribute('aria-expanded','false')}
+document.getElementById('cf').addEventListener('submit',e=>{e.preventDefault();e.target.reset();document.getElementById('ok').classList.remove('hidden')});
+try{const t=localStorage.getItem('theme');if(t)setTheme(t);if(localStorage.getItem('lang')==='en')toggleLang()}catch(e){}
+</script>
+</body>
+</html>
